@@ -5,7 +5,7 @@ import HomePage from "./pages/Home";
 
 function App() {
   return (
-    <div className="bg-red-400">
+    <div className="bg-zinc-900">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

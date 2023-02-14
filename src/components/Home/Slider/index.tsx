@@ -31,7 +31,7 @@ const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
         <SwiperSlide key={movie.id}>
           {({ isActive }) => (
             <div
-              className={`!bg-cover h-screen flex justify-around items-center `}
+              className="!bg-cover !bg-center h-screen flex md:justify-around justify-center flex-col md:flex-row items-center px-8 gap-4"
               style={{
                 background: `linear-gradient(0deg, rgba(0,0, 0,0.5), rgba(0,0, 0,0.5)), url(${apiConfig.originalImage(
                   movie.backdrop_path
@@ -39,23 +39,25 @@ const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
               }}
             >
               <div
-                className={`flex flex-col gap-4 w-2/5 ${
+                className={`flex flex-col gap-4 w-full md:w-2/5 ${
                   isActive
                     ? "translate-y-0 duration-700 ease-in-out"
                     : "translate-y-full duration-700 ease-in-out"
                 }`}
               >
-                <h2 className="text-white text-3xl font-semibold">
+                <h2 className="text-white text-xl md:text-3xl font-semibold">
                   {movie.original_title}
                 </h2>
-                <p className="text-white text-lg ">{movie.overview}</p>
+                <p className="text-white text-base md:text-lg">
+                  {movie.overview}
+                </p>
                 <div className="flex gap-4">
                   <Button variant="primary">Watch now</Button>
                   <Button variant="secondary">Watch trailer</Button>
                 </div>
               </div>
               <img
-                className={`w-64 rounded-xl ${
+                className={`hidden md:w-64 md:block rounded-xl ${
                   isActive
                     ? "scale-100 duration-700 ease-in-out"
                     : "scale-0 duration-700 ease-in-out"

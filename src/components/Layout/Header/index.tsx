@@ -4,18 +4,17 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const links = [
     { id: 1, name: "Home", url: "/" },
-    { id: 1, name: "Movies", url: "/movies" },
-    { id: 1, name: "Tv Series", url: "/tv_series" },
+    { id: 2, name: "Movies", url: "/movies" },
+    { id: 3, name: "Tv Series", url: "/tv_series" },
   ];
 
   return (
-    <nav className="flex justify-between px-20 items-center text-white absolute top-6 w-full z-10">
-      <h1 className="font-bold text-2xl">tMovies</h1>
-      <ul className="flex gap-4">
-        <li></li>
+    <nav className="flex justify-between md:px-20 px-8 items-center text-white absolute top-6 w-full z-10">
+      <h1 className="font-bold sm:text-2xl text-xl">tMovies</h1>
+      <ul className="flex sm:gap-4 gap-2">
         {links.map((link) => (
           <li key={link.id}>
-            <Link className="font-semibold" to={link.url}>
+            <Link className="font-semibold sm:text-base text-sm" to={link.url}>
               {link.name}
             </Link>
           </li>
