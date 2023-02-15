@@ -1,12 +1,15 @@
 import React, { Fragment } from "react";
 import Slider from "../Slider";
-import Trending from "../Trending";
+import TopRatedLayout from "../TopRated";
+import TrendingLayout from "../Trending";
 
-const Layout = () => {
+interface LayoutProps extends React.PropsWithChildren {}
+const Layout: React.FunctionComponent<LayoutProps> = () => {
   return (
     <Fragment>
       <Slider />
-      <Trending />
+      <TrendingLayout />
+      <TopRatedLayout />
     </Fragment>
   );
 };
