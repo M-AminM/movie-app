@@ -6,10 +6,13 @@ import { MovieType } from "../../../config/tmdb.config";
 import { useQuery } from "react-query";
 import { apiConfig } from "../../../config/api.config";
 import Button from "../../Base/Button";
+import useWindowDimensions from "../../Base/Hook";
 
 interface SliderProps extends React.PropsWithChildren {}
 
 const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
+  const { width } = useWindowDimensions();
+
   const getMovies = async () => {
     const res = await tmdbApi.getMoviesList(MovieType.popular);
     // const res1 = await tmdbApi.getTvList(TvType.popular);
@@ -25,6 +28,7 @@ const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
   if (status === "error") {
     return <div>Error</div>;
   }
+
   return (
     <Swiper slidesPerView={1} loop={true}>
       {data.map((movie: any) => (
@@ -34,7 +38,7 @@ const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
               className="!bg-cover !bg-center h-screen flex md:justify-around justify-center flex-col md:flex-row items-center px-8 gap-4"
               style={{
                 background: `linear-gradient(0deg, rgba(0,0, 0,0.5), rgba(0,0, 0,0.5)), url(${apiConfig.originalImage(
-                  movie.backdrop_path
+                  width <= 768 ? movie.poster_path : movie.backdrop_path
                 )})`,
               }}
             >
@@ -45,10 +49,10 @@ const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
                     : "translate-y-full duration-700 ease-in-out"
                 }`}
               >
-                <h2 className="text-white text-xl md:text-3xl font-semibold">
+                <h2 className="text-white text-2xl md:text-3xl font-bold">
                   {movie.original_title}
                 </h2>
-                <p className="text-white text-base md:text-lg">
+                <p className="text-white text-base md:text-lg font-semibold">
                   {movie.overview}
                 </p>
                 <div className="flex gap-4">

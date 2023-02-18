@@ -14,8 +14,6 @@ interface CardProps extends React.PropsWithChildren {
 const Card: React.FunctionComponent<CardProps> = (props) => {
   const { data, title } = props;
 
-  // console.log(title);
-
   return (
     <div className="px-8 md:px-20">
       <div className="flex justify-between items-center py-6">
@@ -42,22 +40,22 @@ const Card: React.FunctionComponent<CardProps> = (props) => {
                       ? "movie"
                       : "tv"
                   }/${data.id}`}
-                  onClick={() => console.log(title)}
-                  className="overflow-hidden cursor-pointer rounded-xl relative group"
                 >
-                  <div className="rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
-                    <div>
-                      <div className="p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
-                        <button className="font-bold">
-                          {data.original_title || data.original_name}
-                        </button>
+                  <div className="overflow-hidden cursor-pointer rounded-xl relative group">
+                    <div className="rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
+                      <div>
+                        <div className="p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
+                          <p className="font-bold z-10">
+                            {data.original_title || data.original_name}
+                          </p>
+                        </div>
                       </div>
                     </div>
+                    <img
+                      className="h-80 object-cover group-hover:opacity-20 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl "
+                      src={apiConfig.originalImage(data.poster_path)}
+                    />
                   </div>
-                  <img
-                    className="h-80 object-cover group-hover:opacity-20 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl "
-                    src={apiConfig.originalImage(data.poster_path)}
-                  />
                 </Link>
               </SwiperSlide>
             )}
