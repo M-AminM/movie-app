@@ -15,7 +15,7 @@ const TopRatedMovies: React.FunctionComponent<TopRatedMoviesProps> = () => {
   const { data, status } = useQuery("top_rated_movies", getTopRatedMovies);
 
   if (status === "loading") {
-    return <div>Loading ...</div>;
+    return <div></div>;
   }
 
   if (status === "error") {

@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { apiConfig } from "../../../config/api.config";
 import Button from "../../Base/Button";
 import useWindowDimensions from "../../Base/Hook";
+import Loading from "../../Base/Loading";
 
 interface SliderProps extends React.PropsWithChildren {}
 
@@ -22,7 +23,7 @@ const Slider: React.FunctionComponent<SliderProps> = (): JSX.Element => {
   const { data, status } = useQuery("movies", getMovies);
 
   if (status === "loading") {
-    return <div>Loading ...</div>;
+    return <Loading />;
   }
 
   if (status === "error") {

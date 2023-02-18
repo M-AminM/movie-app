@@ -26,7 +26,7 @@ const Footer: React.FunctionComponent<FooterProps> = () => {
 
   return (
     <div
-      className="h-[80vh] text-white mt-16 flex justify-center items-center flex-col"
+      className="h-[80vh] text-white  flex justify-center items-center flex-col"
       style={{ backgroundImage: "url('/assets/footer-bg.jpg')" }}
     >
       <h1 className="text-3xl font-bold mb-10">tMovies</h1>

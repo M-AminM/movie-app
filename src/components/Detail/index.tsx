@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { apiConfig } from "../../config/api.config";
 import tmdbApi from "../../config/tmdb.config";
+import Loading from "../Base/Loading";
 import "./detail.css";
 
 interface DetailProps extends React.PropsWithChildren {}
@@ -33,7 +34,7 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
 
   return (
     <>
-      {!active && (
+      {!active ? (
         <div
           className="banner flex md:flex-row flex-col gap-10 md:justify-between justify-end items-center text-white px-8 pb-4 md:px-20"
           style={{
@@ -83,6 +84,8 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
             )}
           </div>
         </div>
+      ) : (
+        <Loading />
       )}
     </>
   );

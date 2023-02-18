@@ -14,7 +14,7 @@ const TrendingTv: React.FunctionComponent<TrendingTvProps> = () => {
   const { data, status } = useQuery("trending_tv", getTrendingTv);
 
   if (status === "loading") {
-    return <div>Loading ...</div>;
+    return <div></div>;
   }
 
   if (status === "error") {

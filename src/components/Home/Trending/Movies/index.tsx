@@ -15,7 +15,7 @@ const TrendingMovies: React.FunctionComponent<TrendingMoviesProps> = () => {
   const { data, status } = useQuery("trending", getTrendingMovies);
 
   if (status === "loading") {
-    return <div>Loading ...</div>;
+    return <div></div>;
   }
 
   if (status === "error") {
