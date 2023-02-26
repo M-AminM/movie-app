@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../Base/Button";
+import Button from "../../Base/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { FreeMode, Pagination } from "swiper";
-import { apiConfig } from "../../config/api.config";
+import { apiConfig } from "../../../config/api.config";
 import { Link } from "react-router-dom";
 
 interface CardProps extends React.PropsWithChildren {

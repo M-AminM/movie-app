@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import tmdbApi, { TvType } from "../../../../config/tmdb.config";
 import Loading from "../../../Base/Loading";
-import Card from "../../../Card";
+import Card from "../../../Card/SwiperCard";
 
 interface TopRatedTvProps extends React.PropsWithChildren {}
 

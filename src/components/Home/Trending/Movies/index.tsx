@@ -2,7 +2,7 @@ import React from "react";
 import tmdbApi, { MovieType } from "../../../../config/tmdb.config";
 import { useQuery } from "react-query";
 import "swiper/css";
-import Card from "../../../Card";
+import Card from "../../../Card/SwiperCard";
 import Loading from "../../../Base/Loading";
 
 interface TrendingMoviesProps extends React.PropsWithChildren {}

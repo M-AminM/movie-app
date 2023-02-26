@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import tmdbApi, { MovieType } from "../../../../config/tmdb.config";
 import Loading from "../../../Base/Loading";
-import Card from "../../../Card";
+import Card from "../../../Card/SwiperCard";
 
 interface TopRatedMoviesProps extends React.PropsWithChildren {}
 
