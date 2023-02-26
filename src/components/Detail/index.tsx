@@ -25,7 +25,7 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
   }, [isFetching]);
 
   if (status === "loading") {
-    return <div>loading...</div>;
+    return <Loading />;
   }
 
   if (status === "error") {

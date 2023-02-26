@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import tmdbApi, { MovieType } from "../../../../config/tmdb.config";
+import Loading from "../../../Base/Loading";
 import Card from "../../../Card";
 
 interface TopRatedMoviesProps extends React.PropsWithChildren {}
@@ -8,14 +9,13 @@ interface TopRatedMoviesProps extends React.PropsWithChildren {}
 const TopRatedMovies: React.FunctionComponent<TopRatedMoviesProps> = () => {
   const getTopRatedMovies = async () => {
     const res = await tmdbApi.getMoviesList(MovieType.top_rated);
-
     return res.data.results;
   };
 
   const { data, status } = useQuery("top_rated_movies", getTopRatedMovies);
 
   if (status === "loading") {
-    return <div></div>;
+    return <Loading />;
   }
 
   if (status === "error") {

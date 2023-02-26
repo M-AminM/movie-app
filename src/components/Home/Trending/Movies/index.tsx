@@ -3,6 +3,7 @@ import tmdbApi, { MovieType } from "../../../../config/tmdb.config";
 import { useQuery } from "react-query";
 import "swiper/css";
 import Card from "../../../Card";
+import Loading from "../../../Base/Loading";
 
 interface TrendingMoviesProps extends React.PropsWithChildren {}
 
@@ -15,7 +16,7 @@ const TrendingMovies: React.FunctionComponent<TrendingMoviesProps> = () => {
   const { data, status } = useQuery("trending", getTrendingMovies);
 
   if (status === "loading") {
-    return <div></div>;
+    return <Loading />;
   }
 
   if (status === "error") {

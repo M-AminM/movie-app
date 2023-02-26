@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import tmdbApi, { TvType } from "../../../../config/tmdb.config";
+import Loading from "../../../Base/Loading";
 import Card from "../../../Card";
 
 interface TopRatedTvProps extends React.PropsWithChildren {}
@@ -15,7 +16,7 @@ const TopRatedTv: React.FunctionComponent<TopRatedTvProps> = () => {
   const { data, status } = useQuery("top_rated_tv", getTopRatedMovies);
 
   if (status === "loading") {
-    return <div></div>;
+    return <Loading />;
   }
 
   if (status === "error") {
