@@ -3,7 +3,10 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { apiConfig } from "../../config/api.config";
 import tmdbApi from "../../config/tmdb.config";
+import Button from "../Base/Button";
 import Loading from "../Base/Loading";
+import Modal from "../Base/Modal";
+import Videos from "../Videos";
 import "./detail.css";
 
 interface DetailProps extends React.PropsWithChildren {}
@@ -11,6 +14,8 @@ interface DetailProps extends React.PropsWithChildren {}
 const Detail: React.FunctionComponent<DetailProps> = () => {
   const { category, id } = useParams();
   const [active, setActive] = useState<boolean>();
+  const [isOpen, setIsOpen] = useState(false);
+
   const getDetail = async () => {
     const res = await tmdbApi.detail(category, id);
     return res.data;
@@ -82,6 +87,16 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
                 </div>
               </>
             )}
+
+            <button
+              className="bg-red-600 px-4 py-2 rounded-xl w-36"
+              onClick={() => setIsOpen(true)}
+            >
+              Watch Trailer
+            </button>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+              <Videos category={category} id={id} />
+            </Modal>
           </div>
         </div>
       ) : (
