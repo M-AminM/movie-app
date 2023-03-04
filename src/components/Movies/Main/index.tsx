@@ -5,7 +5,7 @@ import SwiperCard from "../../Card/AllCard";
 
 const fetchInfiniteMovies = async ({ pageParam = 1 }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/popular/?api_key=47e88a22badd5295613291458ed85c99&page=${pageParam}`
+    `https://api.themoviedb.org/3/movie/popular?api_key=47e88a22badd5295613291458ed85c99&page=${pageParam}`
   );
   if (!response.ok) {
     throw new Error("Something went wrong!");
