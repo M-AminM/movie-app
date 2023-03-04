@@ -1,36 +1,48 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useInfiniteQuery, useQuery } from "react-query";
-import tmdbApi, { MovieType } from "../../../config/tmdb.config";
+import React from "react";
+import { useInfiniteQuery } from "react-query";
 import Loading from "../../Base/Loading";
 import SwiperCard from "../../Card/AllCard";
 
-const Main = () => {
-  const getTopRatedMovies = async (pageParam: any) => {
-    const res = await tmdbApi.getMoviesList(MovieType.top_rated);
-    return res.data.results;
-  };
-  // const { data, status, hasNextPage, fetchNextPage, isFetchingNextPage } =
-  //   useInfiniteQuery({
-  //     queryKey: ["posts", "infinite"],
-  //     getNextPageParam: (prevData: any) => prevData.nextPage,
-  //     queryFn: ({ pageParam = 1 }) => getTopRatedMovies(pageParam),
-  //   });
-  const { data, status } = useQuery("top_all_rated_movies", getTopRatedMovies);
+const fetchInfiniteMovies = async ({ pageParam = 1 }) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/popular/?api_key=47e88a22badd5295613291458ed85c99&page=${pageParam}`
+  );
+  if (!response.ok) {
+    throw new Error("Something went wrong!");
+  }
+  return response.json();
+};
 
-  if (status === "loading") {
+interface AllMoviesProps extends React.PropsWithChildren {}
+
+const AllMovies: React.FunctionComponent<AllMoviesProps> = () => {
+  const { data, isLoading, isFetching, fetchNextPage, hasNextPage, error } =
+    useInfiniteQuery("users", fetchInfiniteMovies, {
+      getNextPageParam: (lastPage, pages) => {
+        if (lastPage.page < lastPage.total_pages) return lastPage.page + 1;
+        return false;
+      },
+    });
+
+  if (isLoading) {
     return <Loading />;
   }
 
-  if (status === "error") {
-    return <div>Error</div>;
-  }
-
   return (
-    <div>
-      <SwiperCard data={data} title="Top rated movies" />{" "}
+    <div className="App">
+      <SwiperCard data={data?.pages} title="Top rated movies" />
+      {hasNextPage && (
+        <div className="w-full flex justify-center items-center pb-6">
+          <button
+            className=" bg-red-600 px-3 py-2 rounded-xl text-white"
+            onClick={() => fetchNextPage()}
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Main;
+export default AllMovies;
