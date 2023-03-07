@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header: React.FunctionComponent = () => {
   const links = [
     { id: 1, name: "Home", url: "/" },
-    { id: 2, name: "Movies", url: "/movies" },
-    { id: 3, name: "Tv Series", url: "/tv_series" },
+    { id: 2, name: "Movies", url: "/popular/movies" },
+    { id: 3, name: "Tv Series", url: "/popular/tv_series" },
   ];
 
   return (

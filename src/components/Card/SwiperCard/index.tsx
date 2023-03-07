@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../Base/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -6,19 +6,39 @@ import { FreeMode, Pagination } from "swiper";
 import { apiConfig } from "../../../config/api.config";
 import { Link } from "react-router-dom";
 
-interface CardProps extends React.PropsWithChildren {
+interface SwiperCardsProps extends React.PropsWithChildren {
   data: any;
   title: string;
 }
 
-const Card: React.FunctionComponent<CardProps> = (props) => {
+const SwiperCards: React.FunctionComponent<SwiperCardsProps> = (props) => {
   const { data, title } = props;
+  const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    switch (title) {
+      case "Trending movies":
+        setUrl("/trending/movies");
+        break;
+      case "Top rated movies":
+        setUrl("/top_rated/movies");
+        break;
+      case "Trending TV":
+        setUrl("/trending/tv_series");
+        break;
+      case "Top rated TV":
+        setUrl("/top_rated/tv_series");
+        break;
+    }
+  }, []);
 
   return (
     <div className="px-8 md:px-20">
       <div className="flex justify-between items-center py-6">
         <h1 className="pb-3 text-white font-bold text-xl">{title}</h1>
-        <Button variant="secondary">View more</Button>
+        <Link to={url}>
+          <Button variant="secondary">View more</Button>
+        </Link>
       </div>
 
       <Swiper
@@ -66,4 +86,4 @@ const Card: React.FunctionComponent<CardProps> = (props) => {
   );
 };
 
-export default Card;
+export default SwiperCards;

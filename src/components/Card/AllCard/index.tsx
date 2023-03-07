@@ -3,12 +3,12 @@ import "swiper/css";
 import { apiConfig } from "../../../config/api.config";
 import { Link } from "react-router-dom";
 
-interface SwiperCardProps extends React.PropsWithChildren {
+interface AllCardsProps extends React.PropsWithChildren {
   data: any;
   title: string;
 }
 
-const SwiperCard: React.FunctionComponent<SwiperCardProps> = (props) => {
+const AllCards: React.FunctionComponent<AllCardsProps> = (props) => {
   const { data, title } = props;
   
   return (
@@ -49,4 +49,4 @@ const SwiperCard: React.FunctionComponent<SwiperCardProps> = (props) => {
   );
 };
 
-export default SwiperCard;
+export default AllCards;

@@ -13,8 +13,10 @@ const App: React.FunctionComponent = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/:category/:id" element={<DetailPage />} />
-          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/:category/:id" element={<DetailPage />} />  
+          <Route path="/:category/movies" element={<MoviesPage />} />
+          <Route path="/tv_series" />
+          <Route path="/top_rated/tv_series" />
         </Route>
       </Routes>
     </div>

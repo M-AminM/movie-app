@@ -1,8 +1,15 @@
-import React from "react";
-import Layout from "./Layout";
+import React, { Fragment } from "react";
+import SearchBar from "./SearchBar";
+import Main from "./Main";
 
-const Movies: React.FunctionComponent = () => {
-  return <Layout />;
+interface MoviesProps extends React.PropsWithChildren {}
+const Movies: React.FunctionComponent<MoviesProps> = () => {
+  return (
+    <Fragment>
+      <SearchBar />
+      <Main />
+    </Fragment>
+  );
 };
 
 export default Movies;

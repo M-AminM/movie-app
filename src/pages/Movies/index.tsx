@@ -1,7 +1,8 @@
 import React from "react";
 import Movies from "../../components/Movies";
 
-const MoviesPage = () => {
+interface MoviesPageProps extends React.PropsWithChildren {}
+const MoviesPage: React.FunctionComponent<MoviesPageProps> = () => {
   return <Movies />;
 };
 
