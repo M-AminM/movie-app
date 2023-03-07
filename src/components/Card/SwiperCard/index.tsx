@@ -18,13 +18,13 @@ const SwiperCards: React.FunctionComponent<SwiperCardsProps> = (props) => {
   useEffect(() => {
     switch (title) {
       case "Trending movies":
-        setUrl("/trending/movies");
+        setUrl("/popular/movies");
         break;
       case "Top rated movies":
         setUrl("/top_rated/movies");
         break;
       case "Trending TV":
-        setUrl("/trending/tv_series");
+        setUrl("/popular/tv_series");
         break;
       case "Top rated TV":
         setUrl("/top_rated/tv_series");

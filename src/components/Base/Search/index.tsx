@@ -12,7 +12,6 @@ const SearchBar: React.FunctionComponent = () => {
       >
         <h1 className="font-bold text-lg pb-2">Movies</h1>
       </div>
-      {/* px-8 md:px-20 */}
       <div className="pt-8 flex justify-center h-full px-8 ">
         <input
           className="px-4 py-2 w-80 bg-black text-gray-400 border-none outline-0 rounded-l-xl text-sm"

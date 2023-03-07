@@ -11,7 +11,7 @@ const Main: React.FunctionComponent<MainProps> = () => {
 
   const fetchInfiniteMovies = async ({ pageParam = 1 }) => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${category}?api_key=47e88a22badd5295613291458ed85c99&page=${pageParam}`
+      `https://api.themoviedb.org/3/tv/${category}?api_key=47e88a22badd5295613291458ed85c99&page=${pageParam}`
     );
     if (!response.ok) {
       throw new Error("Something went wrong!");
@@ -20,7 +20,7 @@ const Main: React.FunctionComponent<MainProps> = () => {
   };
 
   const { data, status, fetchNextPage, hasNextPage, refetch, isRefetching } =
-    useInfiniteQuery("movvies", fetchInfiniteMovies, {
+    useInfiniteQuery("tv_series", fetchInfiniteMovies, {
       getNextPageParam: (lastPage: any) => {
         if (lastPage.page < lastPage.total_pages) return lastPage.page + 1;
         return false;

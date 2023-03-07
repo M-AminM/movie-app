@@ -2,8 +2,7 @@ import React, { Fragment } from "react";
 import SearchBar from "../Base/Search";
 import Main from "./Main";
 
-interface MoviesProps extends React.PropsWithChildren {}
-const Movies: React.FunctionComponent<MoviesProps> = () => {
+const TV: React.FunctionComponent = () => {
   return (
     <Fragment>
       <SearchBar />
@@ -12,4 +11,4 @@ const Movies: React.FunctionComponent<MoviesProps> = () => {
   );
 };
 
-export default Movies;
+export default TV;
