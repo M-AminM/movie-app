@@ -5,7 +5,7 @@ import Main from "./Main";
 const TV: React.FunctionComponent = () => {
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar title="TV Series" />
       <Main />
     </Fragment>
   );

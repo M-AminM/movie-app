@@ -9,7 +9,7 @@ const Header: React.FunctionComponent = () => {
   ];
 
   return (
-    <nav className="flex justify-between md:px-20 px-8 items-center text-white absolute top-6 w-full z-10">
+    <nav className="flex justify-between z-40 md:px-20 px-8 items-center text-white absolute top-6 w-full ">
       <h1 className="font-bold sm:text-2xl text-xl">tMovies</h1>
       <ul className="flex justify-center items-center sm:bg-transparent sm:w-auto sm:pb-0 sm:relative sm:gap-4 fixed bottom-0 left-0 w-full bg-gray-600 pb-3 gap-2">
         {links.map((link) => (

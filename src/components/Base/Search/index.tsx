@@ -1,6 +1,9 @@
 import React from "react";
 
-const SearchBar: React.FunctionComponent = () => {
+interface SearchBarProps extends React.PropsWithChildren {
+  title: string;
+}
+const SearchBar: React.FunctionComponent<SearchBarProps> = ({ title }) => {
   return (
     <>
       <div
@@ -10,7 +13,7 @@ const SearchBar: React.FunctionComponent = () => {
             "linear-gradient(to top, rgba(0, 0, 0 , .8) , rgba(0, 0, 0 , .1)), url('/assets/footer-bg.jpg')",
         }}
       >
-        <h1 className="font-bold text-lg pb-2">Movies</h1>
+        <h1 className="font-bold text-lg pb-2">{title}</h1>
       </div>
       <div className="pt-8 flex justify-center h-full px-8 ">
         <input

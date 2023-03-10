@@ -6,7 +6,7 @@ interface MoviesProps extends React.PropsWithChildren {}
 const Movies: React.FunctionComponent<MoviesProps> = () => {
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar title="Movies" />
       <Main />
     </Fragment>
   );
