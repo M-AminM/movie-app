@@ -33,8 +33,14 @@ const tmdbApi = {
     const url = category[cate] + "/" + id + apiConfig.apiKey;
     return AXIOS.get(url);
   },
+
   getVideos: (cate: any, id: any) => {
     const url = category[cate] + "/" + id + "/videos" + apiConfig.apiKey;
+    return AXIOS.get(url);
+  },
+
+  similar: (cate: any, id: any) => {
+    const url = category[cate] + "/" + id + "/similar" + apiConfig.apiKey;
     return AXIOS.get(url);
   },
 };
