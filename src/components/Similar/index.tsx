@@ -14,6 +14,7 @@ const Similar: React.FunctionComponent<SimilarProps> = ({ category, id }) => {
     return res.data.results;
   };
 
+
   const { data, status } = useQuery("similar", getSimilar);
 
   if (status === "loading") {
@@ -28,7 +29,7 @@ const Similar: React.FunctionComponent<SimilarProps> = ({ category, id }) => {
     <>
       {data.length > 0 ? (
         <div className="pb-6">
-          <SwiperCards data={data} title="Similar movies" />
+          <SwiperCards data={data} title={category === "movie" ? "Similar movies" : "Similar tv"} />
         </div>
       ) : (
         ""

@@ -36,9 +36,11 @@ const SwiperCards: React.FunctionComponent<SwiperCardsProps> = (props) => {
     <div className="px-8 md:px-20">
       <div className="flex justify-between items-center py-6">
         <h1 className="pb-3 text-white font-bold text-xl">{title}</h1>
-        <Link to={url}>
-          <Button variant="secondary">View more</Button>
-        </Link>
+        {(title !== "Similar movies" && title !== "Similar tv") && (
+          <Link to={url}>
+            <Button variant="secondary">View more</Button>
+          </Link>
+        )}
       </div>
 
       <Swiper
@@ -56,7 +58,9 @@ const SwiperCards: React.FunctionComponent<SwiperCardsProps> = (props) => {
               <SwiperSlide className="w-56 " key={data.id}>
                 <Link
                   to={`/${
-                    title === "Trending movies" || title === "Top rated movies"
+                    title === "Trending movies" ||
+                    title === "Top rated movies" ||
+                    title === "Similar movies"
                       ? "movie"
                       : "tv"
                   }/${data.id}`}
@@ -72,8 +76,9 @@ const SwiperCards: React.FunctionComponent<SwiperCardsProps> = (props) => {
                       </div>
                     </div>
                     <img
-                      className="h-80 object-cover group-hover:opacity-20 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl "
+                      className="text-white h-80 object-cover group-hover:opacity-20 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl "
                       src={apiConfig.originalImage(data.poster_path)}
+                      alt={data.original_title || data.original_name}
                     />
                   </div>
                 </Link>
