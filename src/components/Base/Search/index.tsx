@@ -9,8 +9,10 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({ title }) => {
   const navigate = useNavigate();
 
   const clickHandler = () => {
-    navigate(`/search/${inputRef.current.value}`);
+    navigate(`/search/${title === "TV Series" ? "tv" : "movie"}/${inputRef.current.value}`);
   };
+
+  // console.log(title);
 
   return (
     <>

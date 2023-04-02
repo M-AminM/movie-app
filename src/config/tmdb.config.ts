@@ -45,8 +45,7 @@ const tmdbApi = {
   },
 
   search: (cate: any, title: any) => {
-    const url =
-      "search/" + category[cate] + apiConfig.apiKey + `&query=${title}`;
+    const url = "search/" + cate + apiConfig.apiKey + `&query=${title}`;
     return AXIOS.get(url);
   },
 };

@@ -18,7 +18,7 @@ const App: React.FunctionComponent = () => {
           <Route path="/:category/:id" element={<DetailPage />} />
           <Route path="/:category/movies" element={<MoviesPage />} />
           <Route path="/:category/tv_series" element={<TVPage />} />
-          <Route path="/search/:title" element={<Search />} />
+          <Route path="/search/:category/:title" element={<Search />} />
         </Route>
       </Routes>
     </div>

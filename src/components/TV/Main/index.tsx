@@ -41,7 +41,7 @@ const Main: React.FunctionComponent<MainProps> = () => {
 
   return (
     <div>
-      <SwiperCard data={data?.pages} title="Top rated movies" />
+      <SwiperCard data={data?.pages} title="Top rated tv" />
       {hasNextPage && (
         <div className="w-full flex justify-center items-center pb-6">
           <button

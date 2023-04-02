@@ -6,10 +6,12 @@ import tmdbApi from "../../config/tmdb.config";
 import Loading from "../Base/Loading";
 
 const Search = () => {
-  const { title } = useParams();
+  const { title, category } = useParams();
   const [isActive, setIsActive] = useState<boolean>();
+  console.log(title, category);
+
   const getSearch = async () => {
-    const res = await tmdbApi.search("movie", title);
+    const res = await tmdbApi.search(category, title);
     return res.data;
   };
 
@@ -36,7 +38,7 @@ const Search = () => {
           {data.results.map((result: any) => {
             return (
               <div className="w-56 " key={result.id}>
-                <Link to={`/movie/${result.id}`}>
+                <Link to={`/${category}/${result.id}`}>
                   <div className="overflow-hidden cursor-pointer rounded-xl relative group">
                     <div className="rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
                       <div>
