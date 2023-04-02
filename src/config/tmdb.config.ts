@@ -43,6 +43,12 @@ const tmdbApi = {
     const url = category[cate] + "/" + id + "/similar" + apiConfig.apiKey;
     return AXIOS.get(url);
   },
+
+  search: (cate: any, title: any) => {
+    const url =
+      "search/" + category[cate] + apiConfig.apiKey + `&query=${title}`;
+    return AXIOS.get(url);
+  },
 };
 
 export default tmdbApi;

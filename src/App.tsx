@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router";
 import ScrollToTop from "./components/Base/ScrollTop";
 import Layout from "./components/Layout";
+import Search from "./components/Search";
 import DetailPage from "./pages/Detail";
 import HomePage from "./pages/Home";
 import MoviesPage from "./pages/Movies";
@@ -17,6 +18,7 @@ const App: React.FunctionComponent = () => {
           <Route path="/:category/:id" element={<DetailPage />} />
           <Route path="/:category/movies" element={<MoviesPage />} />
           <Route path="/:category/tv_series" element={<TVPage />} />
+          <Route path="/search/:title" element={<Search />} />
         </Route>
       </Routes>
     </div>

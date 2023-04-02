@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SearchBarProps extends React.PropsWithChildren {
   title: string;
 }
 const SearchBar: React.FunctionComponent<SearchBarProps> = ({ title }) => {
+  const inputRef = useRef<any>();
+  const navigate = useNavigate();
+
+  const clickHandler = () => {
+    navigate(`/search/${inputRef.current.value}`);
+  };
+
   return (
     <>
       <div
@@ -20,8 +28,12 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({ title }) => {
           className="px-4 py-2 w-80 bg-black text-gray-400 border-none outline-0 rounded-l-xl text-sm"
           type="text"
           placeholder="Enter keyword"
+          ref={inputRef}
         />
-        <button className="bg-red-600 text-white px-3 pt-1 flex justify-center rounded-r-xl">
+        <button
+          onClick={clickHandler}
+          className="bg-red-600 text-white px-3 pt-1 flex justify-center rounded-r-xl"
+        >
           Search
         </button>
       </div>

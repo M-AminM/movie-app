@@ -10,10 +10,9 @@ interface AllCardsProps extends React.PropsWithChildren {
 
 const AllCards: React.FunctionComponent<AllCardsProps> = (props) => {
   const { data, title } = props;
-  
+
   return (
     <div className="px-8 md:px-20">
-
       <div className="flex flex-wrap gap-8 justify-center py-8">
         {data?.map((page: any) =>
           page.results.map((result: any) => (
